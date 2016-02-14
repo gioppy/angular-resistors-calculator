@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Resistor color calculator | Calculate your resistor color rings</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/assets/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/assets/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/assets/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/assets/favicons/manifest.json">
+    <link rel="mask-icon" href="/assets/favicons/safari-pinned-tab.svg" color="#3f51b5">
+    <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Resistor color calculator">
+    <meta name="application-name" content="Resistor color calculator">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/favicons/mstile-144x144.png">
+    <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#3f51b5">
+    <meta name="description" content="Calculate your resistor color rings, started by a value ohms."/>
+    <meta property="og:site_name" content="Resistor color calculator"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="http://resistors.lab-web.it"/>
+    <meta property="og:title" content="Resistor color calculator"/>
+    <meta property="og:description" content="Calculate your resistor color rings, started by a value ohms."/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:url" content="http://resistors.lab-web.it"/>
+    <meta name="twitter:title" content="Resistor color calculator"/>
+    <meta itemprop="name" content="Resistor color calculator"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <link rel="stylesheet" href="assets/libraries/angular-material/angular-material.min.css" />
+    <link rel="stylesheet" href="assets/styles/style.min.css" />
+  </head>
+<body ng-app="res" layout="column">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h1>Resistor color calculator</h1>
+    </div>
+  </md-toolbar>
+  <div ng-controller="DashboardController as main">
+    <md-content class="md-padding" layout="column">
+      <md-card>
+       <md-card-content>
+         <h2>Calculate the color of the resistor rings</h2>
+         <form ng-model="main.res" ng-submit="main.calculate()" layout-gt-sm="row" layout-padding>
+           <md-input-container flex-gt-xs>
+            <label for="res_value">Resistor Value</label>
+            <md-icon md-svg-src="assets/images/ohm.svg"></md-icon>
+            <input ng-model="main.res.value" id="res_value" type="number" min="100" step="10">
+          </md-input-container>
+          <md-input-container>
+            <label for="res_tollerance">Tollerance</label>
+            <md-select ng-model="main.res.tollerance">
+              <md-option ng-repeat="(key, item) in main.tollerances" value="{{key}}">
+                {{key}} %
+              </md-option>
+            </md-select>
+          </md-input-container>
+        </form>
+       </md-card-content>
+       <md-card-actions layout="row" layout-align="end center">
+         <md-fab-trigger>
+            <md-button aria-label="menu" class="md-fab md-warn" ng-click="main.calculate()">
+              <md-icon md-svg-src="assets/images/pulse.svg"></md-icon>
+            </md-button>
+          </md-fab-trigger>
+       </md-card-actions>
+       <md-card-footer>
+         <div class="resistor-result">
+           <div class="resistor">
+             <span class="resistor-ring ring-{{$index}}" ng-repeat="item in main.result track by $index" style="background-color:{{item}};">
+               <md-tooltip md-visible="false" md-direction="">{{main.colors[item]}}</md-tooltip>
+             </span>
+           </div>
+         </div>
+       </md-card-footer>
+      </md-card>
+    </md-content>
+  </div>
+
+  <script src="assets/libraries/angular/angular.min.js"></script>
+  <script src="assets/libraries/angular-animate/angular-animate.min.js"></script>
+  <script src="assets/libraries/angular-aria/angular-aria.min.js"></script>
+  <script src="assets/libraries/angular-messages/angular-messages.min.js"></script>
+  <script src="assets/libraries/angular-material/angular-material.min.js"></script>
+  <script src="assets/libraries/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+  <script src="app/res.module.js"></script>
+  <script src="app/res.config.js"></script>
+
+  <script src="app/components/dashboard/DashboardController.js"></script>
+  <script src="app/components/dashboard/DashboardServices.js"></script>
+
+</body>
+</html>

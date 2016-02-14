@@ -1,0 +1,25 @@
+{
+  "name": "Resistors Calculator",
+  "authors": [
+    "gioppy <tech@giovannibuffa.it>"
+  ],
+  "description": "Web Application for calculating the resistors rings color",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "http://resistors.lab-web.it",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/libraries",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "^1.0.5",
+    "angular": "1.4.9",
+    "angular-ui-router": "^0.2.18"
+  }
+}
