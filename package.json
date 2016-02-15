@@ -1,20 +1,35 @@
 {
-  "name": "resistors-calculator",
-  "version": "0.0.1",
+  "name": "resistance-calculator",
+  "version": "0.0.2",
   "description": "Web Application for calculating the resistors rings color",
   "main": "gulpfile.js",
   "dependencies": {
-    "gulp-combine-mq": "^0.4.0",
-    "gulp": "^3.9.1",
     "browser-sync": "^2.11.1",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-combine-mq": "^0.4.0",
+    "gulp-concat": "^2.6.0",
     "gulp-cssmin": "^0.1.7",
+    "gulp-htmlmin": "^1.3.0",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.2.0",
-    "gulp-rename": "^1.2.2"
+    "gulp-uglify": "^1.5.2",
+    "gulp-usemin": "^0.3.20"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "run-sequence": "^1.1.5"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gioppy@github.com/gioppy/angular-resistors-calculator.git"
+  },
   "author": "gioppy <tech@giovannibuffa.it>",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gioppy/angular-resistors-calculator/issues"
+  },
+  "homepage": "https://github.com/gioppy/angular-resistors-calculator#readme"
 }

@@ -18,8 +18,12 @@
     "tests"
   ],
   "dependencies": {
-    "angular-material": "^1.0.5",
     "angular": "1.4.9",
-    "angular-ui-router": "^0.2.18"
+    "angular-animate": "1.4.9",
+    "angular-aria": "1.4.9",
+    "angular-messages": "1.4.9"
+  },
+  "resolutions": {
+    "angular-material": "1.0.4"
   }
 }
