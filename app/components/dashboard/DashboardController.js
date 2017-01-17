@@ -1,5 +1,5 @@
 (function(){
-  'use strict'
+  'use strict';
 
   angular
     .module('res')
@@ -11,7 +11,7 @@
     var self = this;
     var resistances = DashboardFactory.resistances();
 
-    self.calculate = calculate
+    self.calculate = calculate;
     self.tollerances = resistances.tollerances;
     self.colors = DashboardFactory.colors();
     self.res = {};

@@ -1,5 +1,5 @@
 (function(){
-  'use strict'
+  'use strict';
 
   angular
     .module('res')
@@ -9,7 +9,7 @@
     return {
       resistances: resistances,
       colors: colors
-    }
+    };
 
     function resistances(){
       var data = {
@@ -20,7 +20,7 @@
             10: '#DCDCDC',
             25: '#FFDDBA'
         }
-      }
+      };
 
       return data;
     }
@@ -40,7 +40,7 @@
         '#F6DB18': "Gold",
         '#DCDCDC': "Grey",
         '#FFDDBA': "Empty"
-      }
+      };
       return colors;
     }
   }
